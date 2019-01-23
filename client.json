@@ -1,0 +1,68 @@
+{
+  "inbounds": [
+    {
+      "port": 2333,
+      "protocol": "socks",
+      "domainOverride": ["tls","http"],
+      "settings": {
+        "auth": "noauth"
+      }
+    }
+  ],
+   "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "serveraddr",
+            "port": 5555,
+            "users": [
+              {
+                "id": "128955ce-4ad0-4596-917f-6b82936903df",
+                "alterId": 233,
+                "security": "auto",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "kcp",
+        "security": "none",
+        "tlsSettings": {
+          "serverName": "",
+          "allowInsecure": false
+        },
+        "kcpSettings": {
+          "mtu": 1350,
+          "tti": 50,
+          "uplinkCapacity": 25,
+          "downlinkCapacity": 250,
+          "congestion": true,
+          "readBufferSize": 2,
+          "writeBufferSize": 2,
+          "header": {
+            "type": "none"
+          }
+        }
+      },
+      "mux": {
+        "enabled": true,
+        "concurrency": 8
+      },
+      "tag": "proxy"
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "block"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "inbounds": [
+    {
+      "port": 5555,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "46f5a976-9629-44bd-a88a-67ac1da33d58",
+            "alterId": 233
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "mkcp", 
+        "kcpSettings": {
+                "mtu": 1350,
+                "tti": 50,
+                "uplinkCapacity": 25,
+                "downlinkCapacity": 250,
+                "congestion": true,
+                "readBufferSize": 2,
+                "writeBufferSize": 2,
+                "header": {
+                "type": "none"
+         }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
